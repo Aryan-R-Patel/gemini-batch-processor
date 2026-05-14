@@ -24,7 +24,9 @@ with open(INPUT_JSONL_NAME, "w") as f:
     for blob in blobs:
         # use the filename as the unique 'key'
         filename = blob.name.replace(INPUT_FOLDER + "/", "")
-        
+        if not filename:
+            continue
+            
         # construct the request
         request = {
             "key": filename, 
